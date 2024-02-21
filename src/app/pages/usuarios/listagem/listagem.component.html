@@ -1,1 +1,26 @@
-<p>listagem usuários works!</p>
+<my-title title="Usuários"></my-title>
+<hr>
+<table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let usuario of usuarios">
+        <th scope="row">{{ usuario.id }}</th>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.idade }}</td>
+        <td>{{ usuario.ativo ? "Ativo" : "Desativado" }}</td>
+        <td>
+          <button type="button" class="btn btn-danger btn sm">Remover</button>
+          <button type="button" class="btn btn-secondary btn sm ms-2">Editar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<a class="btn btn-dark" routerLink="/usuarios/cadastrar">Cadastrar</a>
