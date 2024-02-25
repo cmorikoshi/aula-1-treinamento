@@ -14,7 +14,7 @@ export class CadastroEdicaoUsuariosComponent {
 
   constructor(private usuarioService: UsuariosService, private router: Router, private route: ActivatedRoute) { }
 
-  usuario = {} as IUsuario;
+  usuario  = {} as IUsuario;
 
   usuarioForm = new FormGroup({
     nome: new FormControl('', Validators.required),
@@ -31,10 +31,10 @@ export class CadastroEdicaoUsuariosComponent {
 
     if (usuarioId !== null) {
       this.usuarioService.buscarUsuarioId(+usuarioId).subscribe(
-        (usuario: IUsuario[]) => {
+        (usuario: any) => {
           usuario = {... usuario};
           console.log(usuario);
-          this.usuarioForm.patchValue(this.usuario);
+          this.usuarioForm.patchValue(usuario);
         },
          (error: any) => {
           console.error(error);
