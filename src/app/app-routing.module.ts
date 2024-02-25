@@ -9,6 +9,7 @@ const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'usuarios', component: ListagemUsuariosComponent},
   {path:'usuarios/cadastrar', component: CadastroEdicaoUsuariosComponent},
+  {path:'usuarios/editar/:id', component: CadastroEdicaoUsuariosComponent},
   {path:'produtos', component: ListagemProdutosComponent}
 ];
 

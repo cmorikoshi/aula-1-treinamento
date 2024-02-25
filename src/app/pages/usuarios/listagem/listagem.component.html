@@ -17,8 +17,8 @@
         <td>{{ usuario.idade }}</td>
         <td>{{ usuario.ativo ? "Ativo" : "Desativado" }}</td>
         <td>
-          <button type="button" class="btn btn-danger btn sm">Remover</button>
-          <button type="button" class="btn btn-secondary btn sm ms-2">Editar</button>
+          <button type="button" class="btn btn-danger btn sm" (click)="removerUsuario(usuario.id || 0)">Remover</button>
+          <a [routerLink]="'/usuarios/editar/' + usuario.id" class="btn btn-secondary btn sm ms-2">Editar</a>
         </td>
       </tr>
     </tbody>
