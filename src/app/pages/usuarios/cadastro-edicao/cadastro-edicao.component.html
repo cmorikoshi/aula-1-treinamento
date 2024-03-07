@@ -1,13 +1,15 @@
 
-<my-title title="Usuários / Cadastrar"></my-title>
+<my-title *ngIf="id" title="Usuários / Editar"></my-title>
+<my-title *ngIf="!id" title="Usuários / Cadastrar"></my-title>
 <hr>
 
-<form [formGroup]="usuarioForm" (submit)="cadastrarUsuarios()">
+<form [formGroup]="usuarioForm" (submit)="cadastrarEditarUsuarios()">
     <div class="row">
         <div class="col">
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="nome" formControlName="nome">
+                <div *ngIf="usuarioForm.get('nome')?.errors?.['required']" class="form-text text-danger">Campo obrigatório</div>
             </div>
         </div>
         <div class="col">
@@ -17,6 +19,6 @@
             </div>
         </div>
     </div>
-    <button type="Submt" class="btn btn-primary" [disabled]="usuarioForm.invalid">Cadastrar</button>
+    <button type="Submt" class="btn btn-primary" [disabled]="usuarioForm.invalid">{{id ? 'Editar' : 'Cadastrar'}}</button>
 </form>
 

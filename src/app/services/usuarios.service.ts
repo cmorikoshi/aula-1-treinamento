@@ -15,9 +15,13 @@ export class UsuariosService {
     return this.http.get<IUsuario[]>(this.api);
  }
 
-cadastrarUsuario(usuario: IUsuario){
+cadastrarEditarUsuario(usuario: IUsuario){
+  if (usuario.id){
+    return this.http.put(`${this.api}/${usuario.id}`, usuario);
+  }
   return this.http.post(this.api, usuario);
 }
+
 removerUsuario(id: number){
   return this.http.delete(`${this.api}/${id}`)
 }

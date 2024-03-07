@@ -1,1 +1,40 @@
-<p>cadastro-edicao works!</p>
+
+<my-title *ngIf="id" title="Produtos / Editar"></my-title>
+<my-title *ngIf="!id" title="Produtos / Cadastrar"></my-title>
+<hr>
+
+<form [formGroup]="produtoForm" (submit)="cadastrarEditarProdutos()">
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label for="nomeProduto" class="form-label">Nome do Produto</label>
+                <input type="text" class="form-control" id="nomeProduto" formControlName="nomeProduto">
+                <div *ngIf="produtoForm.get('nomeProduto')?.errors?.['required']" class="form-text text-danger">Campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label for="codigoBarras" class="form-label" >Codigo de Barras</label>
+                <input type="number" class="form-control" id="codigoBarras" formControlName="codigoBarras" maxlength="13">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label for="quantidade" class="form-label">Quantidade</label>
+                <input type="number" class="form-control" id="quantidade" formControlName="quantidade">
+                <div *ngIf="produtoForm.get('quantidade')?.errors?.['required']" class="form-text text-danger">Quantidade</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label for="preco" class="form-label">Preço</label>
+                <input  class="form-control" id="preco" formControlName="preco" currencyMask  />
+            </div>
+        </div>
+    </div>
+    <button type="Submt" class="btn btn-primary" [disabled]="produtoForm.invalid">{{id ? 'Editar' : 'Cadastrar'}}</button>
+</form>
+
+

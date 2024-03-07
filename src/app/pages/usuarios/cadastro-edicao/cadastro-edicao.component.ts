@@ -21,42 +21,46 @@ export class CadastroEdicaoUsuariosComponent {
     idade: new FormControl()
   })
 
+  id: number = 0;
+
   ngOnInit() {
     this.retornarUsuario();
 
   }
 
   public retornarUsuario(): void {
-    const usuarioId = this.route.snapshot.paramMap.get('id');
-
-    if (usuarioId !== null) {
-      this.usuarioService.buscarUsuarioId(+usuarioId).subscribe(
+    const id = this.route.snapshot.paramMap.get('id');
+    const idNumber = Number(id)
+    if (idNumber) {
+      this.id = idNumber;
+      this.usuarioService.buscarUsuarioId(idNumber).subscribe(
         (usuario: any) => {
           usuario = {... usuario};
-          console.log(usuario);
-          this.usuarioForm.patchValue(usuario);
-        },
+          // console.log(usuario);
+          this.usuarioForm.patchValue(usuario)},
          (error: any) => {
-          console.error(error);
-         },
+          console.error(error);},
          () => {}
       );     
     }
-
   }
 
-  cadastrarUsuarios() {
+  cadastrarEditarUsuarios() {
     console.log(this.usuarioForm.value)
 
     const usuario = this.usuarioForm.value as IUsuario;
     usuario.ativo = true;
 
-    this.usuarioService.cadastrarUsuario(usuario).subscribe
+    if (this.id){
+      usuario.id = this.id;
+    }
+
+    this.usuarioService.cadastrarEditarUsuario(usuario).subscribe
       ((result) => {
         console.log(result);
         swal.fire({
-          title: "Cadastro realizado com sucesso!!",
-          text: "Clique no botão para confirmar!!",
+          title: "SUCESSO!!",
+          text: `Usuário ${this.id ? 'editado' : 'cadastrado'} com sucesso!`,
           icon: "success"
         });
         this.router.navigateByUrl('/usuarios')

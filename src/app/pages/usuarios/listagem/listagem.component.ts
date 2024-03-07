@@ -17,6 +17,7 @@ export class ListagemUsuariosComponent {
   ngOnInit(){
     // this.usuarios = this.listarUsuarios();
     this.usuariosService.buscarTodosUsuarios().subscribe(usuarios => {
+      console.log(usuarios);
       this.usuarios = usuarios;
     }, error => {
     console.error();
@@ -50,12 +51,12 @@ exibirConfirmacao(id: number){
     if (result.isConfirmed) {
       this.usuariosService.removerUsuario(id).subscribe(
         (result) => {
-          this.usuarios.filter(usuarioLista => usuarioLista.id != id)
       Swal.fire({
         title: "Removido!",
         text: "O item foi removido.",
         icon: "success"
       });
+     this.usuarios = this.usuarios.filter(usuario => usuario.id != id)
     },  erro => {
       console.log(erro);
     });

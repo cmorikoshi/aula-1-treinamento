@@ -1,34 +1,60 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "nome": "Rafael Ferreira",
+      "nome": "Rafael Ferreira2",
       "idade": 19,
-      "ativo": true
+      "ativo": true,
+      "id": 1
     },
     {
       "id": 2,
       "nome": "Lucas Ferreira",
       "idade": 35,
       "ativo": false
+    }
+  ],
+  "produtos": [
+    {
+      "nomeProduto": "iPhone 13",
+      "codigoBarras": "5012345678900",
+      "quantidade": 5,
+      "preco": 5000.1,
+      "id": 1
     },
     {
-      "nome": "Marcos",
-      "idade": 42,
-      "ativo": true,
+      "nomeProduto": "Samsung S23",
+      "codigoBarras": 5012345678902,
+      "quantidade": "4",
+      "preco": 3910,
+      "id": 2
+    },
+    {
+      "nomeProduto": "Motorola G8",
+      "codigoBarras": 5012345678920,
+      "quantidade": "8",
+      "preco": 1890.99,
       "id": 3
     },
     {
-      "nome": "Samuel",
-      "idade": 36,
-      "ativo": true,
+      "nomeProduto": "Motorola G31",
+      "codigoBarras": 5012345678900,
+      "quantidade": 9,
+      "preco": 2229,
       "id": 4
     },
     {
-      "nome": "Manoel",
-      "idade": 41,
-      "ativo": true,
+      "nomeProduto": "Samsung Galaxy",
+      "codigoBarras": 5012345678900,
+      "quantidade": 7,
+      "preco": 3349,
       "id": 5
+    },
+    {
+      "nomeProduto": "iPhone 14",
+      "codigoBarras": 5012345679901,
+      "quantidade": 11,
+      "preco": 4999.1,
+      "id": 6
     }
   ]
 }
